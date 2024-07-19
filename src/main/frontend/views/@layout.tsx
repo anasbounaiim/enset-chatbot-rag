@@ -1,16 +1,27 @@
 import {NavLink, Outlet} from "react-router-dom";
 
 export default function Layout() {
-   return(
-       <div className="p-m">
-           <nav>
-               <NavLink className="btn btn-outline-info m-1" to="/">Home</NavLink>
-               <NavLink className="btn btn-outline-info m-1" to="/chat"> Chat </NavLink>
-           </nav>
+    return (
+        <div className="">
+            {/* Use the Bootstrap navbar component */}
+            <nav className="navbar navbar-expand navbar-dark" style={{ backgroundColor: '#007bff' }}> {/* Bootstrap primary blue */}
 
-           <main>
-               <Outlet></Outlet>
-           </main>
-       </div>
-   )
+                <div className="container-fluid">
+                    {/* Navigation links using NavLink and Bootstrap styling */}
+                    <NavLink className="navbar-brand" to="/">ChatBot RAG</NavLink>
+                    <div className="collapse navbar-collapse">
+                        <div className="navbar-nav">
+                            <NavLink className="nav-item nav-link" to="/" end>Home</NavLink>
+                            <NavLink className="nav-item nav-link" to="/chat">Chat</NavLink>
+                            <NavLink className="nav-item nav-link" to="/person">Person</NavLink>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <main className="container mt-4">
+                <Outlet />
+            </main>
+        </div>
+    );
 }
